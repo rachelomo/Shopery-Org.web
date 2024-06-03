@@ -8,6 +8,7 @@ import Sign_in from "./Components/Sign_in";
 import Shop from "./Pages/Shop";
 import Pages from "./Pages/Pages";
 import About_Us from "./Pages/About_Us";
+import Sign_up from "./Components/Sign_up";
 // import About from "./Components/About";
 
 const App = () => {
@@ -22,7 +23,8 @@ const App = () => {
         <Route path="/Blog" element={<BlogList />} />
         <Route path="/About Us" element={<About_Us />} />
         <Route path="/Contact Us" element={<HomePage />} />
-        <Route path="login" element={<Sign_in />} />
+        <Route path="/login" element={<Sign_in />} />
+        <Route path="/register" element={<Sign_up />} />
       </Routes>
       <Footer />
     </Router>

@@ -84,7 +84,7 @@ const BlogListImgFrst = () => {
             <h2 className="font-bold text-[2vw] mb-2">Our Gallery</h2>
             <div className="flex flex-wrap gap-1">
               {[...Array(8)].map((_, index) => (
-                <img key={index} src={img1} alt="Gallery" className="w-[8vw]" />
+                <img key={index} src={img1} alt="Gallery" className="w-[7vw]" />
               ))}
             </div>
           </div>
@@ -95,7 +95,7 @@ const BlogListImgFrst = () => {
             <div className="space-y-4">
               {[...Array(3)].map((_, index) => (
                 <div key={index} className="flex items-start space-x-4">
-                  <img src={img1} alt="Recently Added" className="w-[8vw]" />
+                  <img src={img1} alt="Recently Added" className="w-[7vw]" />
                   <div>
                     <p className="text-black text-[18px]">
                       Curabitur porttitor orci eget neque accumsan.

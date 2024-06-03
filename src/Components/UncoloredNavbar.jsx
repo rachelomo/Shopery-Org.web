@@ -24,7 +24,10 @@ const UncoloredNavbar = () => {
             } md:block`}
           >
             <li>
-              <Link to="/HomePage" className="flex items-center py-2 md:py-0 ">
+              <Link
+                to="/HomePage"
+                className="flex items-center text-green-600 py-2 md:py-0 "
+              >
                 Home
                 <IoIosArrowDown className="mt-2" />
               </Link>
