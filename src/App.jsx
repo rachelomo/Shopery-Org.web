@@ -9,6 +9,7 @@ import Shop from "./Pages/Shop";
 import Pages from "./Pages/Pages";
 import About_Us from "./Pages/About_Us";
 import Sign_up from "./Components/Sign_up";
+import User_Dashboard from "./WhenRegLog/User_Dashboard";
 // import About from "./Components/About";
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/Contact Us" element={<HomePage />} />
         <Route path="/login" element={<Sign_in />} />
         <Route path="/register" element={<Sign_up />} />
+        <Route path="/dashboard" element={<User_Dashboard />} />
       </Routes>
       <Footer />
     </Router>
