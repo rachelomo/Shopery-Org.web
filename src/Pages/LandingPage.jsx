@@ -22,13 +22,13 @@ const LandingPage = () => {
             <h2 className="text-2xl lg:text-5xl font-semibold">
               Fresh & Healthy <br /> Organic Food
             </h2>
-            <div className="relative text-lg">
+            <div className="relative text-lg px-5">
               Sale up to{" "}
               <button className="bg-orange-600 text-white px-2 py-1 pl-5 pr-5 rounded">
                 30% OFF
               </button>
             </div>
-            <p className="text-xs lg:text-sm">
+            <p className="text-xs lg:text-sm  px-5">
               Free Shipping on all your orders
             </p>
             <hr className="border-l-2 border-green-600 h-[5vw] my-2 absolute bottom-[13vw]" />
