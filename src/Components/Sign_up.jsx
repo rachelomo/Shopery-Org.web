@@ -35,7 +35,6 @@ const Sign_up = () => {
         password,
       });
       toast.success("Registration successful");
-      // Redirect to user home page or another page
       navigate("/dashboard");
     } catch (error) {
       console.error("Error registering:", error);
