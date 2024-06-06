@@ -21,7 +21,7 @@ const ClientCard = () => {
         <div className="flex items-center mb-4">
           <button
             className={`p-2 mx-2 ${
-              page === 1 ? "text-gray-400 cursor-not-allowed" : "text-blue-500"
+              page === 1 ? "text-gray-400 cursor-not-allowed" : "text-white"
             }`}
             onClick={() => setPage((prevPage) => prevPage - 1)}
             disabled={page === 1}
@@ -29,8 +29,8 @@ const ClientCard = () => {
             <FaArrowLeft />
           </button>
           <button
-            className={`p-2 mx-2 bg-green-500 ${
-              page === 2 ? "text-gray-400 cursor-not-allowed" : "text-blue-500"
+            className={`p-2 mx-2 bg-green-500 rounded-full ${
+              page === 2 ? "text-gray-400 cursor-not-allowed" : "text-white"
             }`}
             onClick={() => setPage((prevPage) => prevPage + 1)}
             disabled={page === 2}
