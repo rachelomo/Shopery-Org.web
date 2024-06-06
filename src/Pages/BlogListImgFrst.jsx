@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import BlogListImgSec from "./BlogListImgSec";
 
-const img1 = "gallery.png"; // Assuming img1 is the file name
+const img1 = "gallery.png";
 
 const CATEGORIES = [
   { name: "Fresh Fruit", count: 134 },
@@ -12,7 +12,6 @@ const CATEGORIES = [
   { name: "Snack", count: 47 },
   { name: "Beverages", count: 43 },
   { name: "Bread & Bakery", count: 38 },
-  { name: "Bread & Bakery", count: 15 },
 ];
 
 const TAGS = [
@@ -31,10 +30,10 @@ const TAGS = [
 
 const BlogListImgFrst = () => {
   return (
-    <div className="px-20 py-8">
+    <div className="px-5 py-8 lg:px-20">
       <div className="flex flex-wrap lg:flex-nowrap">
         {/* Sidebar */}
-        <div className="w-full lg:w-[40%] pr-8 mb-8 lg:mb-0">
+        <div className="w-full lg:w-2/5 pr-8 mb-8 lg:mb-0">
           {/* Search */}
           <div className="relative w-full mb-8">
             <input
@@ -70,7 +69,7 @@ const BlogListImgFrst = () => {
                 <li key={index}>
                   <Link
                     to="#"
-                    className="text-[2vw] border border-gray-200 bg-gray-100 px-1 rounded-lg"
+                    className="text-lg border border-gray-200 bg-gray-100 px-4 py-1 rounded-lg"
                   >
                     {tag}
                   </Link>
@@ -81,10 +80,15 @@ const BlogListImgFrst = () => {
 
           {/* Gallery */}
           <div className="mb-8">
-            <h2 className="font-bold text-[2vw] mb-2">Our Gallery</h2>
+            <h2 className="font-bold text-lg mb-2">Our Gallery</h2>
             <div className="flex flex-wrap gap-1">
               {[...Array(8)].map((_, index) => (
-                <img key={index} src={img1} alt="Gallery" className="w-[7vw]" />
+                <img
+                  key={index}
+                  src={img1}
+                  alt={`Gallery image ${index + 1}`}
+                  className="w-1/5"
+                />
               ))}
             </div>
           </div>
@@ -95,9 +99,13 @@ const BlogListImgFrst = () => {
             <div className="space-y-4">
               {[...Array(3)].map((_, index) => (
                 <div key={index} className="flex items-start space-x-4">
-                  <img src={img1} alt="Recently Added" className="w-[7vw]" />
+                  <img
+                    src={img1}
+                    alt={`Recently added image ${index + 1}`}
+                    className="w-1/4"
+                  />
                   <div>
-                    <p className="text-black text-[18px]">
+                    <p className="text-black text-sm lg:text-lg">
                       Curabitur porttitor orci eget neque accumsan.
                     </p>
                     <div className="flex items-center text-xs text-gray-500">
@@ -112,7 +120,7 @@ const BlogListImgFrst = () => {
         </div>
 
         {/* Main Content */}
-        <div className="w-full lg:w-[55%]">
+        <div className="w-full lg:w-3/5">
           <BlogListImgSec />
         </div>
       </div>

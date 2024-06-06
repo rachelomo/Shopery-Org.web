@@ -132,7 +132,7 @@ const Sign_up = () => {
                 </div>
               </div>
               <div className="mt-4">
-                <label htmlFor="accept-terms" className="flex items-center">
+                <label htmlFor="accept-terms" className="my-5 flex items-center">
                   <input
                     id="accept-terms"
                     name="accept-terms"

@@ -34,7 +34,7 @@ const UncoloredNavbar = () => {
             </li>
             <li>
               <Link
-                to="/about"
+                to="/shop"
                 className="flex items-center py-2 md:py-0 text-gray-400"
               >
                 Shop
@@ -61,7 +61,7 @@ const UncoloredNavbar = () => {
             </li>
             <li>
               <Link
-                to="/contact"
+                to="/About Us"
                 className="flex items-center py-2 md:py-0 text-gray-400"
               >
                 About Us
@@ -70,10 +70,10 @@ const UncoloredNavbar = () => {
             </li>
             <li>
               <Link
-                to="/contact"
+                to="/Contact"
                 className="flex items-center py-2 md:py-0 text-gray-400"
               >
-                Contact Us
+                   Contact Us
                 <IoIosArrowDown className="mt-2" />
               </Link>
             </li>

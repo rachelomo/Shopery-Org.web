@@ -67,7 +67,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/Contact Us"
+                to="/Contact"
                 className="flex items-center py-2 md:py-0 text-gray-400"
               >
                 Contact Us
