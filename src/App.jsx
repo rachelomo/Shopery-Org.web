@@ -83,3 +83,6 @@ const App = () => {
 };
 
 export default App;
+//to start a json server
+// json-server --watch db.json --port 5000
+// --watch/-w can be omitted, JSON Server 1+ watches for file changes by default
