@@ -15,7 +15,6 @@ const Sign_up = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [acceptTerms, setAcceptTerms] = useState(false);
   const navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -30,15 +29,19 @@ const Sign_up = () => {
     }
 
     try {
-      const response = await axios.post("/api-endpoint", {
+      const response = await axios.post("http://localhost:5000/users", {
         email,
         password,
       });
       toast.success("Registration successful");
-      navigate("/dashboard");
+      navigate("/dashboard"); // Redirect to the dashboard after successful registration
     } catch (error) {
-      console.error("Error registering:", error);
-      toast.error("Error registering user");
+      if (error.response && error.response.status === 409) {
+        toast.error("Email already exists");
+      } else {
+        console.error("Error registering:", error);
+        toast.error("Error registering user");
+      }
     }
   };
 
@@ -132,7 +135,10 @@ const Sign_up = () => {
                 </div>
               </div>
               <div className="mt-4">
-                <label htmlFor="accept-terms" className="my-5 flex items-center">
+                <label
+                  htmlFor="accept-terms"
+                  className="my-5 flex items-center"
+                >
                   <input
                     id="accept-terms"
                     name="accept-terms"

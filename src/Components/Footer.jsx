@@ -33,7 +33,10 @@ const Footer = () => {
               <h2 className="text-lg font-semibold">My Account</h2>
               <ul className="flex flex-col gap-2 text-sm">
                 <li>
-                  <a href="#" className="text-gray-400 hover:text-white">
+                  <a
+                    href="/register"
+                    className="text-gray-400 hover:text-white"
+                  >
                     My Account
                   </a>
                 </li>
@@ -43,7 +46,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="/cart" className="hover:text-white">
                     Shopping Cart
                   </a>
                 </li>
@@ -58,12 +61,12 @@ const Footer = () => {
               <h2 className="text-lg font-semibold">Helps</h2>
               <ul className="flex flex-col gap-2 text-gray-400 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="/Contact" className="hover:text-white">
                     Contact
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="/faq" className="hover:text-white">
                     Faqs
                   </a>
                 </li>
@@ -83,12 +86,12 @@ const Footer = () => {
               <h2 className="text-lg font-semibold">Proxy</h2>
               <ul className="flex flex-col gap-2 text-gray-400 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="/About Us" className="hover:text-white">
                     About
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="/Shop" className="hover:text-white">
                     Shop
                   </a>
                 </li>
@@ -108,7 +111,7 @@ const Footer = () => {
               <h2 className="text-lg font-semibold">Categories</h2>
               <ul className="flex flex-col gap-2 text-gray-400 text-sm">
                 <li>
-                  <a href="#" className="hover:text-white">
+                  <a href="" className="hover:text-white">
                     Fruit & Vegetables
                   </a>
                 </li>

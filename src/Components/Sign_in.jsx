@@ -1,36 +1,43 @@
 import UncoloredNavbar from "./UncoloredNavbar";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import AccSign_in from "./AccSign_in";
 import Subscribtion from "../Pages/Subscribtion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../context/AuthContext";
 
 const Sign_in = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("api-endpoint", {
-        email,
-        password,
-        rememberMe,
+      const response = await axios.get("http://localhost:5000/users", {
+        params: { email, password },
       });
-      console.log(response.data);
-      // Do something with the response, like redirecting to another page.
+
+      const user = response.data.find(
+        (user) => user.email === email && user.password === password
+      );
+
+      if (user) {
+        toast.success("Login successful");
+        login(user); // Log the user in
+        navigate("/dashboard");
+      } else {
+        toast.error("User does not exist or incorrect password");
+      }
     } catch (error) {
       console.error("Error signing in:", error);
-      if (error.response && error.response.status === 404) {
-        toast.error("User does not exist");
-      } else {
-        toast.error("Error signing in");
-      }
+      toast.error("Error signing in");
     }
   };
 

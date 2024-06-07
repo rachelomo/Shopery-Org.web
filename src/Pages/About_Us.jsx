@@ -4,7 +4,7 @@ import UncoloredNavbar from "../Components/UncoloredNavbar";
 import ShopVegetable from "./ShopVegetable";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { PiPackageLight } from "react-icons/pi";
-import { CiCircleCheck } from "react-icons/ci";
+import { CiCircleCheck, CiHome } from "react-icons/ci";
 import { HiOutlineArrowSmallRight } from "react-icons/hi2";
 import {
   FaArrowRight,
@@ -17,6 +17,9 @@ import { SlSocialPintarest } from "react-icons/sl";
 import ClientCard from "./ClientCard";
 import NomalTest from "./NomalTest";
 import Subscribtion from "./Subscribtion";
+import { IoIosArrowForward } from "react-icons/io";
+import { Link } from "react-router-dom";
+const imgry = "Breadcrumbs.png";
 
 const img = "Image (19).png";
 const img1 = "Image (20).png";
@@ -69,41 +72,61 @@ const About_Us = () => {
     <div>
       <div>
         <UncoloredNavbar />
-        <ShopVegetable />
       </div>
-      <div className="flex flex-col md:flex-row justify-center items-center py-10">
-        <div className="md:w-1/2">
-          <h2 className="font-bold text-[25px] text-center md:text-left">
+      <div>
+        <div className="relative">
+          <img src={imgry} alt="imgry" />
+          <div className="absolute text-white inset-0 flex items-center px-[7.5vw] gap-2">
+            <Link to="/">
+              <CiHome className="" />
+            </Link>
+            <IoIosArrowForward />
+            <h2 className="text-green-600"></h2>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col md:flex-row px-4 md:px-20 items-center py-10">
+        <div className="w-full md:w-1/2">
+          <h2 className="font-bold text-2xl md:text-[35px] mb-4">
             100% Trusted <br /> Organic Food Store
           </h2>
-          <span className="text-sm block md:inline">
+          <span className="text-sm md:text-1.5xl block md:inline">
             Morbi porttitor ligula in nunc varius sagittis. Proin dui nisi,
-            laoreet ut tempor ac, cursus vitae eros. Cras quis ultricies elit.
-            Proin ac lectus arcu. Maecenas aliquet vel tellus at accumsan. Donec
-            a eros non massa vulputate ornare. Vivamus ornare commodo ante, at
-            commodo felis congue vitae.
+            laoreet <br /> ut tempor ac, cursus vitae eros. Cras quis ultricies
+            elit. Proin ac <br /> lectus arcu. Maecenas aliquet vel tellus at
+            accumsan. Donec a <br /> eros non massa vulputate ornare. Vivamus
+            ornare commodo ante, at commodo felis congue vitae.
           </span>
         </div>
-        <div className="md:w-1/2">
-          <img src={img} alt="img" className="w-full md:w-80" />
+        <div className="mt-5 w-full md:w-1/2">
+          <img
+            src={img}
+            alt="img"
+            className="object-cover w-full h-auto md:w-[65vw]"
+          />
         </div>
       </div>
       <div className="flex flex-col md:flex-row">
         <div className="md:w-1/2">
-          <img src={img1} alt="img1" className="w-full md:w-80" />
+          <img
+            src={img1}
+            alt="img1"
+            className="w-full md:w-[60vw] object-cover"
+          />
         </div>
-        <div className="md:w-1/2 p-4">
-          <h2 className="text-lg font-bold text-center md:text-left">
-            100% Trusted Organic Food Store
+        <div className="md:w-1/2 py-10 px-4 md:px-10">
+          <h2 className="text-2xl md:text-[35px] font-bold text-center md:text-left mb-4">
+            100% Trusted <br /> Organic Food Store
           </h2>
-          <span className="text-sm block md:inline">
+          <span className="text-sm md:text-1.5xl block md:inline">
             Pellentesque a ante vulputate leo porttitor luctus sed eget eros.
-            Nulla et rhoncus neque. Duis non diam eget est luctus tincidunt a a
-            mi. Nulla eu eros consequat tortor tincidunt feugiat.{" "}
+            Nulla et <br /> rhoncus neque. Duis non diam eget est luctus
+            tincidunt a a mi. Nulla eu <br /> eros consequat tortor tincidunt
+            feugiat.
           </span>
           <div className="flex flex-col md:flex-row mt-4">
             <div className="flex flex-col">
-              <div className="flex items-center">
+              <div className="flex items-center mb-2">
                 <img src={group} alt="group" className="w-5" />
                 <div className="ml-2">
                   <h2 className="text-lg font-bold">100% Organic food</h2>
@@ -112,7 +135,7 @@ const About_Us = () => {
                   </span>
                 </div>
               </div>
-              <div className="flex items-center mt-2">
+              <div className="flex items-center mb-2">
                 <img src={img2} alt="img2" className="w-5" />
                 <div className="ml-2">
                   <h2 className="text-lg font-bold">Customer Feedback</h2>
@@ -121,7 +144,7 @@ const About_Us = () => {
                   </span>
                 </div>
               </div>
-              <div className="flex items-center mt-2">
+              <div className="flex items-center mb-2">
                 <img src={img3} alt="img" className="w-5" />
                 <div className="ml-2">
                   <h2 className="text-lg font-bold">Free Shipping</h2>
@@ -132,7 +155,7 @@ const About_Us = () => {
               </div>
             </div>
             <div className="flex flex-col mt-4 md:mt-0 md:ml-4">
-              <div className="flex items-center">
+              <div className="flex items-center mb-2">
                 <TfiHeadphoneAlt className="text-green-600" />
                 <div className="ml-2">
                   <h2 className="text-lg font-bold">Great Support 24/7</h2>
@@ -141,7 +164,7 @@ const About_Us = () => {
                   </span>
                 </div>
               </div>
-              <div className="flex items-center mt-2">
+              <div className="flex items-center mb-2">
                 <IoBagCheckOutline className="text-green-600" />
                 <div className="ml-2">
                   <h2 className="text-lg font-bold">100% Secure Payment</h2>
@@ -150,7 +173,7 @@ const About_Us = () => {
                   </span>
                 </div>
               </div>
-              <div className="flex items-center mt-2">
+              <div className="flex items-center">
                 <PiPackageLight className="text-green-600 border" />
                 <div className="ml-2">
                   <h2 className="text-lg font-bold">100% Organic Food</h2>
@@ -163,52 +186,53 @@ const About_Us = () => {
           </div>
         </div>
       </div>
-      {/* third imgs */}
-      <div className="flex flex-col md:flex-row px-4 md:px-80">
-        <div className="md:w-1/2">
-          <div className="my-10 text-center md:text-left">
-            <h2 className="text-[30px] font-bold">
-              We Delivered, You <br /> Enjoy Your Order.
-            </h2>
-            <span className="text-sm block md:inline">
-              Ut suscipit egestas suscipit. Sed posuere pellentesque nunc,
-              ultrices consectetur velit dapibus eu. Mauris sollicitudin
-              dignissim diam, ac mattis eros accumsan rhoncus. Curabitur auctor
-              bibendum nunc eget elementum.
-            </span>
-            <div className="my-5">
-              <div className="flex items-center">
-                <CiCircleCheck />
-                <span className="ml-2">Sed in metus pellentesque.</span>
-              </div>
-              <div className="flex items-center mt-2">
-                <CiCircleCheck />
-                <span className="ml-2">
-                  Fusce et ex commodo, aliquam nulla efficitur, tempus lorem.
-                </span>
-              </div>
-              <div className="flex items-center mt-2">
-                <CiCircleCheck />
-                <span className="ml-2">
-                  Maecenas ut nunc fringilla erat varius.
-                </span>
-              </div>
+      <div className="flex flex-col md:flex-row px-4 md:px-20 py-10">
+        <div className="w-full md:w-1/2">
+          <h2 className="text-2xl md:text-[30px] font-bold mb-4">
+            We Delivered, You <br /> Enjoy Your Order.
+          </h2>
+          <span className="text-sm md:text-1.5xl block md:inline">
+            Ut suscipit egestas suscipit. Sed posuere pellentesque nunc,
+            <br /> ultrices consectetur velit dapibus eu. Mauris sollicitudin
+            dignissim <br /> diam, ac mattis eros accumsan rhoncus. Curabitur
+            auctor bibendum nunc eget elementum.
+          </span>
+          <div className="my-5">
+            <div className="flex items-center mb-2">
+              <CiCircleCheck />
+              <span className="ml-2">Sed in metus pellentesque.</span>
+            </div>
+            <div className="flex items-center mb-2">
+              <CiCircleCheck />
+              <span className="ml-2">
+                Fusce et ex commodo, aliquam nulla efficitur, tempus lorem.
+              </span>
+            </div>
+            <div className="flex items-center mb-2">
+              <CiCircleCheck />
+              <span className="ml-2">
+                Maecenas ut nunc fringilla erat varius.
+              </span>
             </div>
           </div>
-          <button className="flex items-center bg-green-500 text-white px-4 py-2 rounded-full mt-4">
+          <button className="flex items-center bg-green-500 text-white px-4 py-2 rounded-full">
             Shop now <HiOutlineArrowSmallRight className="ml-2" />
           </button>
         </div>
-        <div className="md:w-1/2">
-          <img src={img4} alt="img4" className="w-full md:w-80" />
+        <div className="mt-10 md:mt-0 md:w-1/2 flex justify-center items-center">
+          <img
+            src={img4}
+            alt="img4"
+            className="w-full h-auto md:w-[60vw] object-cover"
+          />
         </div>
       </div>
-      {/* Awesome image */}
-      <div className="text-center">
-        <h2 className="font-bold text-[30px] text-center">Our Awesome Team</h2>
-        <span className="text-sm">
+      <div className="text-center my-10 px-4 md:px-20">
+        <h2 className="font-bold text-2xl md:text-[30px]">Our Awesome Team</h2>
+        <span className="text-sm block md:inline">
           Pellentesque a ante vulputate leo porttitor luctus sed eget eros.
-          Nulla et rhoncus <br /> neque. Duis non diam eget est luctus tincidunt
+          Nulla et rhoncus <br />
+          neque. Nulla et rhoncus neque. Duis non diam eget est luctus tincidunt
           a a mi.
         </span>
         <div className="relative mt-8 flex justify-center items-center">
@@ -216,11 +240,11 @@ const About_Us = () => {
             className="cursor-pointer text-2xl mx-4"
             onClick={handlePrev}
           />
-          <div className="flex gap-4 justify-center my-8">
+          <div className="flex gap-4 justify-center my-8 overflow-x-auto">
             {teamMembers
               .slice(currentIndex, currentIndex + 4)
               .map((member, index) => (
-                <div key={index} className="relative">
+                <div key={index} className="relative flex-shrink-0">
                   <img src={member.img} alt={member.name} className="w-40" />
                   {index === 0 && (
                     <div className="flex items-center gap-3 absolute top-[10vh] left-0 right-0 justify-center px-5">
@@ -271,7 +295,6 @@ const About_Us = () => {
           />
         </div>
       </div>
-      {/* ClientCard */}
       <div>
         <ClientCard />
         <NomalTest />

@@ -14,6 +14,9 @@ import Shoplist from "./Pages/Shoplist";
 import CartPage from "./Components/CartPage";
 import CheckoutPage from "./Components/CheckoutPage";
 import Contact_Us from "./Pages/Contact_Us";
+import Faq from "./Pages/Faq";
+import { AuthProvider } from "./context/AuthContext";
+
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
 
@@ -41,36 +44,41 @@ const App = () => {
   const removeCartItem = (item) => {
     setCartItems((prevItems) => prevItems.filter((i) => i.name !== item.name));
   };
+
   return (
-    <Router>
-      <div>
-        <Header cartItems={cartItems} />
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/HomePage" element={<HomePage />} />
-          <Route path="/Shop" element={<Shoplist addToCart={addToCart} />} />
-          <Route path="/Pages" element={<Pages />} />
-          <Route path="/Blog" element={<BlogList />} />
-          <Route path="/About Us" element={<About_Us />} />
-          <Route path="/Contact" element={<Contact_Us />} />
-          <Route path="/login" element={<Sign_in />} />
-          <Route path="/register" element={<Sign_up />} />
-          <Route path="/dashboard" element={<User_Dashboard />} />
-          <Route
-            path="/cart"
-            element={
-              <CartPage
-                cartItems={cartItems}
-                updateCartItem={updateCartItem}
-                removeCartItem={removeCartItem}
-              />
-            }
-          />
-          <Route path="/checkout" element={<CheckoutPage />} />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div>
+          <Header cartItems={cartItems} />
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/HomePage" element={<HomePage />} />
+            <Route path="/Shop" element={<Shoplist addToCart={addToCart} />} />
+            <Route path="/Pages" element={<Pages />} />
+            <Route path="/Blog" element={<BlogList />} />
+            <Route path="/About Us" element={<About_Us />} />
+            <Route path="/Contact" element={<Contact_Us />} />
+            <Route path="/login" element={<Sign_in />} />
+            <Route path="/register" element={<Sign_up />} />
+            <Route path="/dashboard" element={<User_Dashboard />} />
+            <Route path="/faq" element={<Faq />} />
+            {/* <Route path="/categories" element={<Categories />} /> */}
+            <Route
+              path="/cart"
+              element={
+                <CartPage
+                  cartItems={cartItems}
+                  updateCartItem={updateCartItem}
+                  removeCartItem={removeCartItem}
+                />
+              }
+            />
+            <Route path="/checkout" element={<CheckoutPage />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 };
 

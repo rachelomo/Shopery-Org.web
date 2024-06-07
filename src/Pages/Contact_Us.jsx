@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { CiLocationOn, CiMail } from "react-icons/ci";
+import { CiHome, CiLocationOn, CiMail } from "react-icons/ci";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { FaMapMarkerAlt } from "react-icons/fa"; // Import the map marker icon
 import UncoloredNavbar from "../Components/UncoloredNavbar";
-import ShopVegetable from "./ShopVegetable";
+
 import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Subscribtion from "./Subscribtion";
-
+import { IoIosArrowForward } from "react-icons/io";
+import { Link } from "react-router-dom";
+const img = "Breadcrumbs.png";
 const MAPBOX_TOKEN = "YOUR_MAPBOX_ACCESS_TOKEN"; // Replace with your Mapbox token
 
 const Contact_Us = () => {
@@ -22,8 +24,18 @@ const Contact_Us = () => {
   return (
     <div>
       <UncoloredNavbar />
-      <ShopVegetable />
-
+      <div>
+        <div className="relative">
+          <img src={img} alt="img" />
+          <div className="absolute text-white inset-0 flex items-center px-[7.5vw] gap-2">
+          <Link to="/">
+              <CiHome className="" />
+            </Link>
+            <IoIosArrowForward />
+            <h2 className="text-green-600">Contact</h2>
+          </div>
+        </div>
+      </div>
       <div className="flex flex-col lg:flex-row gap-10 items-center px-4 lg:px-[4vw] mb-5 justify-center">
         <div className="text-center shadow-lg shadow-gray-200 flex flex-col w-full lg:w-60 h-auto lg:h-auto gap-6 px-5 py-5 lg:px-10 justify-center bg-white rounded-lg">
           <div className="flex flex-col items-center">
