@@ -34,7 +34,7 @@ const Sign_up = () => {
         password,
       });
       toast.success("Registration successful");
-      navigate("/dashboard"); // Redirect to the dashboard after successful registration
+      navigate("/dashboard");
     } catch (error) {
       if (error.response && error.response.status === 409) {
         toast.error("Email already exists");

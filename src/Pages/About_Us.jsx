@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { TfiHeadphoneAlt } from "react-icons/tfi";
 import UncoloredNavbar from "../Components/UncoloredNavbar";
-import ShopVegetable from "./ShopVegetable";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { PiPackageLight } from "react-icons/pi";
 import { CiCircleCheck, CiHome } from "react-icons/ci";
