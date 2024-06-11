@@ -16,6 +16,7 @@ import CheckoutPage from "./Components/CheckoutPage";
 import Contact_Us from "./Pages/Contact_Us";
 import Faq from "./Pages/Faq";
 import { AuthProvider } from "./context/AuthContext";
+import Dashboard from "./WhenRegLog/Dashboard";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -60,7 +61,8 @@ const App = () => {
             <Route path="/Contact" element={<Contact_Us />} />
             <Route path="/login" element={<Sign_in />} />
             <Route path="/register" element={<Sign_up />} />
-            <Route path="/dashboard" element={<User_Dashboard />} />
+            {/* <Route path="/dashboard" element={<User_Dashboard />} /> */}
+            <Route path="/user-dashboard/*" element={<Dashboard />} />
             <Route path="/faq" element={<Faq />} />
             {/* <Route path="/categories" element={<Categories />} /> */}
             <Route
@@ -83,6 +85,6 @@ const App = () => {
 };
 
 export default App;
-//to start a json server
+// to start a json server
 // json-server --watch db.json --port 5000
 // --watch/-w can be omitted, JSON Server 1+ watches for file changes by default

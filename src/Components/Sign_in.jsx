@@ -31,7 +31,7 @@ const Sign_in = () => {
       if (user) {
         toast.success("Login successful");
         login(user);
-        navigate("/dashboard");
+        navigate("/user-dashboard/*");
       } else {
         toast.error("User does not exist or incorrect password");
       }
