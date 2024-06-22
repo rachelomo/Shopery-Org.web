@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import LandingPage from "./Pages/LandingPage";
@@ -9,14 +9,15 @@ import Sign_in from "./Components/Sign_in";
 import Pages from "./Pages/Pages";
 import About_Us from "./Pages/About_Us";
 import Sign_up from "./Components/Sign_up";
-import User_Dashboard from "./WhenRegLog/User_Dashboard";
 import Shoplist from "./Pages/Shoplist";
 import CartPage from "./Components/CartPage";
 import CheckoutPage from "./Components/CheckoutPage";
 import Contact_Us from "./Pages/Contact_Us";
 import Faq from "./Pages/Faq";
 import { AuthProvider } from "./context/AuthContext";
-import Dashboard from "./WhenRegLog/Dashboard";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import Subscribtion from "./Pages/Subscribtion";
+import ProtectedRoute from "./Components/ProtectedRoute";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -61,10 +62,19 @@ const App = () => {
             <Route path="/Contact" element={<Contact_Us />} />
             <Route path="/login" element={<Sign_in />} />
             <Route path="/register" element={<Sign_up />} />
-            {/* <Route path="/dashboard" element={<User_Dashboard />} /> */}
-            <Route path="/user-dashboard/*" element={<Dashboard />} />
+            <Route
+              path="/user-dashboard/*"
+              element={
+                <ProtectedRoute>
+                  <Dashboard
+                    cartItems={cartItems}
+                    updateCartItem={updateCartItem}
+                    removeCartItem={removeCartItem}
+                  />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/faq" element={<Faq />} />
-            {/* <Route path="/categories" element={<Categories />} /> */}
             <Route
               path="/cart"
               element={
@@ -77,6 +87,7 @@ const App = () => {
             />
             <Route path="/checkout" element={<CheckoutPage />} />
           </Routes>
+          <Subscribtion />
           <Footer />
         </div>
       </Router>
@@ -85,6 +96,3 @@ const App = () => {
 };
 
 export default App;
-// to start a json server
-// json-server --watch db.json --port 5000
-// --watch/-w can be omitted, JSON Server 1+ watches for file changes by default

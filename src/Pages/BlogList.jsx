@@ -1,5 +1,5 @@
 import BlogListFilters from "./BlogListFilters";
-import Subscribtion from "./Subscribtion";
+// import Subscribtion from "./Subscribtion";
 import SectionImg from "../Components/SectionsImg";
 import UncoloredNavbar from "../Components/UncoloredNavbar";
 
@@ -13,7 +13,7 @@ const BlogList = () => {
         <SectionImg />
       </div>
       <BlogListFilters />
-      <Subscribtion />
+      {/* <Subscribtion /> */}
     </div>
   );
 };

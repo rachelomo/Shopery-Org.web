@@ -1,4 +1,3 @@
-import AccSign_up from "./AccSign_up";
 import UncoloredNavbar from "./UncoloredNavbar";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,6 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AccSign_up from "./AccSign_up";
 
 const Sign_up = () => {
   const [email, setEmail] = useState("");
@@ -15,6 +15,7 @@ const Sign_up = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [acceptTerms, setAcceptTerms] = useState(false);
   const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -29,15 +30,22 @@ const Sign_up = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/users", {
+      const response = await axios.post("http://127.0.0.1:8000/api/register", {
         email,
         password,
+        password_confirmation: confirmPassword,
+        terms_accepted: acceptTerms,
       });
       toast.success("Registration successful");
-      navigate("/login");
+      navigate("/user-dashboard/dashboard");
     } catch (error) {
-      if (error.response && error.response.status === 409) {
-        toast.error("Email already exists");
+      if (error.response && error.response.status === 422) {
+        const errors = error.response.data;
+        if (errors.email) {
+          toast.error(errors.email[0]);
+        } else {
+          toast.error("Error registering user");
+        }
       } else {
         console.error("Error registering:", error);
         toast.error("Error registering user");

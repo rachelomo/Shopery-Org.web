@@ -1,21 +1,28 @@
 import { Link } from "react-router-dom";
 const img = "Ellipse 5.png";
+
 const TheDashboard = () => {
   return (
     <div className="p-4">
       {/* Profile and Billing Address Section */}
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6 gap-6">
-        <div className="">
-          <img src={img} alt="Profile" className="rounded-full" />
+        <div className="border text-center w-full lg:w-1/2 flex items-center justify-center rounded h-auto lg:h-60 p-4">
           <div>
-            <h2 className="text-xl font-bold">Dianne Russell</h2>
-            <p className="text-gray-600">Customer</p>
-            <Link to="/" className="text-green-600">
-              Edit Profile
-            </Link>
+            <img
+              src={img}
+              alt="Profile"
+              className="rounded-full w-24 h-24 mx-auto"
+            />
+            <div className="mt-4">
+              <h2 className="text-xl font-bold">Dianne Russell</h2>
+              <p className="text-gray-600">Customer</p>
+              <Link to="/" className="text-green-600">
+                Edit Profile
+              </Link>
+            </div>
           </div>
         </div>
-        <div className="mt-4 lg:mt-0">
+        <div className="mt-4 lg:mt-0 border rounded p-5 w-full lg:w-1/2 h-auto lg:h-60">
           <span className="block text-lg font-bold">Billing Address</span>
           <h2 className="text-xl">Dianne Russell</h2>
           <span className="text-sm block">
@@ -30,7 +37,7 @@ const TheDashboard = () => {
       </div>
 
       {/* Recent Order History Section */}
-      <div className="my-10">
+      <div className="my-10 border p-5 overflow-x-auto">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">Recent Order History</h2>
           <Link to="/all" className="text-green-600">
@@ -45,7 +52,7 @@ const TheDashboard = () => {
                 <th className="p-2">Date</th>
                 <th className="p-2">Total</th>
                 <th className="p-2">Status</th>
-                <th className="p-2">Actions</th>
+                {/* <th className="p-2">Actions</th> */}
               </tr>
             </thead>
             <tbody>
@@ -71,7 +78,7 @@ const TheDashboard = () => {
                 {
                   id: "#561",
                   date: "1 Feb, 2020",
-                  total: "$35.00 (1 Products)",
+                  total: "$35.00 (1 Product)",
                   status: "Completed",
                 },
                 {

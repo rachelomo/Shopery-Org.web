@@ -84,7 +84,7 @@ const UncoloredNavbar = () => {
             <FaPhoneVolume className="mr-1" /> (210) 555-0114
           </button>
         </div>
-      </div>
+      </div>  
     </nav>
   );
 };

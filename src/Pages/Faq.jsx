@@ -3,7 +3,7 @@ import UncoloredNavbar from "../Components/UncoloredNavbar";
 import { IoIosArrowForward } from "react-icons/io";
 import { CiHome } from "react-icons/ci";
 import { FaPlus, FaMinus } from "react-icons/fa";
-import Subscribtion from "./Subscribtion";
+// import Subscribtion from "./Subscribtion";
 import { Link } from "react-router-dom";
 
 const img = "Breadcrumbs.png";
@@ -113,9 +113,9 @@ const Faq = () => {
           />
         </div>
       </div>
-      <div>
+      {/* <div>
         <Subscribtion />
-      </div>
+      </div> */}
     </div>
   );
 };

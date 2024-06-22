@@ -1,8 +1,6 @@
 // src/components/CartPage.jsx
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import UncoloredNavbar from "./UncoloredNavbar";
-import ShopVegetable from "../Pages/ShopVegetable";
 import { TiTimes } from "react-icons/ti";
 import { HiMiniMinusSmall, HiMiniPlusSmall } from "react-icons/hi2";
 
@@ -46,14 +44,12 @@ const CartPage = ({ cartItems, updateCartItem, removeCartItem }) => {
 
   return (
     <div>
-      <UncoloredNavbar />
-      <ShopVegetable />
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center my-10">
         <h2 className="text-2xl font-bold text-center mt-4">
           My Shopping Cart
         </h2>
         <div className="flex flex-col lg:flex-row w-full lg:px-20 my-5">
-          <div className="w-full lg:w-3/4 border-2 p-2">
+          <div className="w-full p-4 border-2">
             {localCartItems.length > 0 ? (
               <div>
                 {/* Cart header for larger screens */}
@@ -143,6 +139,7 @@ const CartPage = ({ cartItems, updateCartItem, removeCartItem }) => {
               </button>
             </div>
             <div className="flex items-center justify-between my-4 px-1">
+              {" "}
               <h2>Coupon Code</h2>
               <div
                 className="flex border h-10 mt-4 md:mt-0 w-full md:w-auto"
@@ -159,7 +156,7 @@ const CartPage = ({ cartItems, updateCartItem, removeCartItem }) => {
               </div>
             </div>
           </div>
-          <div className="w-full lg:w-1/4 lg:ml-4 border-2 p-2 mt-4 lg:mt-0">
+          <div className="w-full lg:w-1/2 lg:ml-4 border-2 p-2 mt-4 lg:mt-0">
             <div className="mt-8">
               <div className="flex justify-between border-t pt-2 border-b pb-2 mb-2">
                 <span>Cart Total</span>

@@ -15,7 +15,7 @@ import {
 import { SlSocialPintarest } from "react-icons/sl";
 import ClientCard from "./ClientCard";
 import NomalTest from "./NomalTest";
-import Subscribtion from "./Subscribtion";
+// import Subscribtion from "./Subscribtion";
 import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 const imgry = "Breadcrumbs.png";
@@ -297,7 +297,7 @@ const About_Us = () => {
       <div>
         <ClientCard />
         <NomalTest />
-        <Subscribtion />
+        {/* <Subscribtion /> */}
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ import Latest from "./Latest";
 import ClientCard from "./ClientCard";
 import NomalTest from "./NomalTest";
 import FollowIg from "./FollowIg";
-import Subscribtion from "./Subscribtion";
+
 // import Popular from "./Popular";
 
 const rate = "Rating.png";
@@ -113,7 +113,7 @@ export const Popular = () => {
         <ClientCard />
         <NomalTest />
         <FollowIg />
-        <Subscribtion />
+   
       </div>
     </div>
   );

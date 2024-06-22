@@ -3,7 +3,6 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 import AccSign_in from "./AccSign_in";
-import Subscribtion from "../Pages/Subscribtion";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,25 +18,33 @@ const Sign_in = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await axios.get("http://localhost:5000/users", {
-        params: { email, password },
+      const response = await axios.post("http://127.0.0.1:8000/api/login", {
+        email,
+        password,
+        remember_me: rememberMe,
       });
 
-      const user = response.data.find(
-        (user) => user.email === email && user.password === password
-      );
+      const { user, token } = response.data;
 
-      if (user) {
+      if (response.status === 200) {
         toast.success("Login successful");
-        login(user);
-        navigate("/user-dashboard/*");
+        login({ user, token });
+        localStorage.setItem("token", token); // Save token in localStorage
+        navigate("/user-dashboard/dashboard");
       } else {
-        toast.error("User does not exist or incorrect password");
+        toast.error("Login failed. Please check your credentials.");
       }
     } catch (error) {
-      console.error("Error signing in:", error);
-      toast.error("Error signing in");
+      if (error.response && error.response.status === 401) {
+        toast.error("Invalid credentials");
+      } else if (error.response && error.response.status === 404) {
+        toast.error("User not found");
+      } else {
+        console.error("Error signing in:", error);
+        toast.error("Error signing in");
+      }
     }
   };
 
@@ -140,7 +147,6 @@ const Sign_in = () => {
               </button>
             </div>
           </form>
-          {/* registration */}
           <div className="text-sm text-center">
             <p className="text-gray-600">
               Don't have an account?{" "}
@@ -152,9 +158,6 @@ const Sign_in = () => {
               </Link>
             </p>
           </div>
-        </div>
-        <div>
-          <Subscribtion />
         </div>
       </div>
       <ToastContainer />

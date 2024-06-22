@@ -2,7 +2,7 @@ import { useState } from "react";
 import { CiHome } from "react-icons/ci";
 import UncoloredNavbar from "../Components/UncoloredNavbar";
 import { IoIosArrowForward } from "react-icons/io";
-import Subscribtion from "./Subscribtion";
+// import Subscribtion from "./Subscribtion";
 import { Link } from "react-router-dom";
 
 const img = "Breadcrumbs.png";
@@ -62,9 +62,9 @@ const Pages = () => {
           </button>
         </div>
       </div>
-      <div>
+      {/* <div>
         <Subscribtion />
-      </div>
+      </div> */}
     </div>
   );
 };

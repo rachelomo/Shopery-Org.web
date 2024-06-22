@@ -2,7 +2,7 @@ import UncoloredNavbar from "../Components/UncoloredNavbar";
 
 import Shop from "./Shop";
 import ShopVegetable from "./ShopVegetable";
-import Subscribtion from "./Subscribtion";
+// import Subscribtion from "./Subscribtion";
 
 const Shoplist =  ({ addToCart }) => {
   return (
@@ -14,7 +14,7 @@ const Shoplist =  ({ addToCart }) => {
         <ShopVegetable />
       </div>
       <Shop addToCart={addToCart} />
-      <Subscribtion />
+      {/* <Subscribtion /> */}
     </div>
   );
 };

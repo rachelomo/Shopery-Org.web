@@ -50,9 +50,9 @@ const ShopImgSec = ({ addToCart }) => {
                 className="w-full h-auto"
               />
               {category.name === "Meat & Fish" && (
-                <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-opacity-50">
-                  <AiOutlineHeart className="text-white text-2xl m-2" />
-                  <AiOutlineEye className="text-white text-2xl m-2" />
+                <div className="">
+                  <AiOutlineHeart className="" />
+                  <AiOutlineEye className="" />
                 </div>
               )}
             </div>

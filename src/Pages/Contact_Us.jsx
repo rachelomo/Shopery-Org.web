@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { CiHome, CiLocationOn, CiMail } from "react-icons/ci";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
-import { FaMapMarkerAlt } from "react-icons/fa"; // Import the map marker icon
+import { FaMapMarkerAlt } from "react-icons/fa"; 
 import UncoloredNavbar from "../Components/UncoloredNavbar";
 
 import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import Subscribtion from "./Subscribtion";
+// import Subscribtion from "./Subscribtion";
 import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
 const img = "Breadcrumbs.png";
-const MAPBOX_TOKEN = "YOUR_MAPBOX_ACCESS_TOKEN"; // Replace with your Mapbox token
+const MAPBOX_TOKEN = "YOUR_MAPBOX_ACCESS_TOKEN";
 
 const Contact_Us = () => {
   const [viewport, setViewport] = useState({
@@ -109,8 +109,8 @@ const Contact_Us = () => {
           </Marker>
         </Map>
       </div>
-
-      <Subscribtion />
+{/* 
+      <Subscribtion /> */}
     </div>
   );
 };
