@@ -80,7 +80,7 @@ const About_Us = () => {
               <CiHome className="" />
             </Link>
             <IoIosArrowForward />
-            <h2 className="text-green-600"></h2>
+            <h2 className="text-green-600">About Us</h2>
           </div>
         </div>
       </div>

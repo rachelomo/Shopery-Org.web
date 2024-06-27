@@ -2,19 +2,19 @@ import React from "react";
 import { CiShoppingCart } from "react-icons/ci";
 import { AiOutlineHeart, AiOutlineEye } from "react-icons/ai";
 
-const rate = "Rating.png";
-const img = "Image.png";
-const img1 = "Image (1).png";
-const img2 = "Image (3).png";
-const img3 = "Image (4).png";
-const img4 = "Image (5).png";
-const img5 = "Image (6).png";
-const img6 = "Image (7).png";
-const img7 = "Image (8).png";
-const img8 = "Image (9).png";
-const img9 = "Image (10).png";
-const img10 = "Image (11).png";
-const img11 = "Image (12).png";
+const rate = "/Rating.png";
+const img = "/Image.png";
+const img1 = "/Image (1).png";
+const img2 = "/Image (3).png";
+const img3 = "/Image (4).png";
+const img4 = "/Image (5).png";
+const img5 = "/Image (6).png";
+const img6 = "/Image (7).png";
+const img7 = "/Image (8).png";
+const img8 = "/Image (9).png";
+const img9 = "/Image (10).png";
+const img10 = "/Image (11).png";
+const img11 = "/Image (12).png";
 
 const initialCategories = [
   { img: img, rate, name: "Fresh Fruit", price: "$14.99" },

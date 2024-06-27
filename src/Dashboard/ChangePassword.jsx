@@ -23,7 +23,6 @@ const ChangePassword = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your authentication and API call logic here
     console.log("Current Password:", currentPassword);
     console.log("New Password:", newPassword);
     console.log("Confirm Password:", confirmPassword);

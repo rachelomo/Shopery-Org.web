@@ -15,7 +15,7 @@ import CheckoutPage from "./Components/CheckoutPage";
 import Contact_Us from "./Pages/Contact_Us";
 import Faq from "./Pages/Faq";
 import { AuthProvider } from "./context/AuthContext";
-import Dashboard from "./Pages/Dashboard/Dashboard";
+import Dashboard from "./Dashboard/Dashboard";
 import Subscribtion from "./Pages/Subscribtion";
 import ProtectedRoute from "./Components/ProtectedRoute";
 

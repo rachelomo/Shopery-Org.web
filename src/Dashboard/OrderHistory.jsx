@@ -1,57 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import axios from "axios";
 
 const OrderHistory = () => {
-  const orders = [
-    {
-      id: "#703",
-      date: "8 Sep, 2020",
-      total: "$135.00 (5 Products)",
-      status: "Processing",
-    },
-    {
-      id: "#703",
-      date: "24 May, 2020",
-      total: "$25.00 (1 Product)",
-      status: "On the way",
-    },
-    {
-      id: "#130",
-      date: "22 Oct, 2020",
-      total: "$250.00 (4 Products)",
-      status: "Completed",
-    },
-    {
-      id: "#561",
-      date: "1 Feb, 2020",
-      total: "$35.00 (1 Products)",
-      status: "Completed",
-    },
-    {
-      id: "#536",
-      date: "21 Sep, 2020",
-      total: "$578.00 (13 Products)",
-      status: "Completed",
-    },
-    {
-      id: "#492",
-      date: "22 Oct, 2020",
-      total: "$345.00 (7 Products)",
-      status: "Completed",
-    },
-    {
-      id: "#492",
-      date: "22 Oct, 2020",
-      total: "$345.00 (7 Products)",
-      status: "Completed",
-    },
-    // Add more orders here if needed...
-  ];
-
+  const [orders, setOrders] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const ordersPerPage = 5;
-  const totalPages = Math.ceil(orders.length / ordersPerPage);
+  useEffect(() => {
+    const fetchOrders = async () => {
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/api/orders", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        const fetchedOrders = response.data;
+        setOrders(fetchedOrders);
+        setTotalPages(Math.ceil(fetchedOrders.length / ordersPerPage));
+      } catch (error) {
+        console.error("Error fetching orders:", error);
+      }
+    };
+
+    fetchOrders();
+  }, []);
 
   const handlePrevious = () => {
     setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));

@@ -9,7 +9,7 @@ const Settings = () => {
     phoneNumber: "(603) 555-0123",
     companyName: "Zakirsoft",
     streetAdress: "4140 Par|",
-    profileImage: "Ellipse 5.png",
+    profileImage: "/Ellipse 5.png",
     // country: "United States",
     // state: "Washington DC",
     zipCode: "20033",

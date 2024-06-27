@@ -7,8 +7,8 @@ import { HiOutlineArrowSmallRight } from "react-icons/hi2";
 import ShopImgSec from "./ShopImgSec";
 const img2 = "";
 
-const img1 = "gallery.png";
-const img = "Instagram Post.png";
+const img1 = "/gallery.png";
+const img = "/Instagram Post.png";
 
 const TAGS = [
   "Healthy",

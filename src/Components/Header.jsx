@@ -3,7 +3,7 @@ import { CiLocationOn } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
 import SearchComponent from "./SearchComponent";
 import Cart from "./Cart";
-const plant = "plant 1.png";
+const plant = "/plant 1.png";
 
 const Header = ({ cartItems }) => {
   return (

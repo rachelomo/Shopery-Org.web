@@ -5,20 +5,28 @@ import OrderHistory from "./OrderHistory";
 import WhishList from "./WhishList";
 import Settings from "./Settings";
 import ShopingCart from "./ShopingCart";
-// import UncoloredNavbar from "../Components/UncoloredNavbar";
-// import Subscribtion from "../Pages/Subscribtion";
+import DashboardImg from "./DashboardImg";
+import UncoloredNavbar from "../Components/UncoloredNavbar";
 
 const Dashboard = ({ cartItems, updateCartItem, removeCartItem }) => {
   return (
-    <div className="min-h-screen flex flex-col">
-      {/* <UncoloredNavbar /> */}
-      <div className="flex flex-col lg:flex-row mx-[7.8vw]">
-        <User_Dashboard />
-        <div className="flex-1 my-10 mx-5 md:mx-10 lg:mx-20 overflow-x-hidden">
+    <div className="min-h-screen">
+      <div>
+        <UncoloredNavbar />
+      </div>
+      <div>
+        <DashboardImg />
+      </div>
+      <div className="flex">
+        <div className="w-full lg:w-1/4">
+          <User_Dashboard />
+        </div>
+
+        {/* Main Content */}
+        <div className="flex-1 p-8">
           <Routes>
             <Route path="dashboard" element={<TheDashboard />} />
             <Route path="order-history" element={<OrderHistory />} />
-            <Route path="wishlist" element={<WhishList />} />
             <Route path="settings" element={<Settings />} />
             <Route
               path="shopingcart"
@@ -30,12 +38,19 @@ const Dashboard = ({ cartItems, updateCartItem, removeCartItem }) => {
                 />
               }
             />
+            <Route
+              path="wishlist"
+              element={
+                <WhishList
+                  cartItems={cartItems}
+                  updateCartItem={updateCartItem}
+                  removeCartItem={removeCartItem}
+                />
+              }
+            />
           </Routes>
         </div>
       </div>
-      {/* <div>
-        <Subscribtion />
-      </div> */}
     </div>
   );
 };

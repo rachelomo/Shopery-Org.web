@@ -1,9 +1,19 @@
 import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { MdDashboard, MdHistory } from "react-icons/md";
-import { CiHeart, CiLogout, CiSettings, CiShoppingCart } from "react-icons/ci";
-import SectionImg from "../../Components/SectionsImg";
+import {
+  CiHeart,
+  // CiHome,
+  CiLogout,
+  CiSettings,
+  CiShoppingCart,
+} from "react-icons/ci";
+// import { IoIosArrowForward } from "react-icons/io";
+// const img = "/Breadcrumbs.png";
+// console.log("Image path:", img);
+// import SectionImg from "../../Components/SectionsImg";
+// import Navbar from "../../Components/Navbar";
 
 const User_Dashboard = () => {
   const { user, logout } = useContext(AuthContext);
@@ -34,11 +44,8 @@ const User_Dashboard = () => {
   }
 
   return (
-    <div className="p-4">
-      <div>
-        <SectionImg />
-      </div>
-      <div className="w-full lg:w-60 border rounded">
+    <div className="">
+      <div className="w-full lg:w-60 border rounded mx-[7vw] my-10">
         <h2 className="font-bold text-2xl md:text-3xl mb-5 p-3">Navigation</h2>
         <ul className="flex flex-col gap-4 text-lg md:text-xl">
           <li className="flex items-center">
@@ -52,6 +59,7 @@ const User_Dashboard = () => {
               Dashboard
             </Link>
           </li>
+
           <li className="flex items-center">
             <Link
               to="/user-dashboard/order-history"
@@ -96,6 +104,7 @@ const User_Dashboard = () => {
               Settings
             </Link>
           </li>
+
           <li className="flex items-center">
             <button
               className="w-full flex items-center p-2 hover:bg-gray-200 rounded-md"

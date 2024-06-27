@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { CiHeart, CiShoppingCart } from "react-icons/ci";
-import UncoloredNavbar from "./UncoloredNavbar";
+// import UncoloredNavbar from "./UncoloredNavbar";
 
 const Cart = ({ cartItems }) => {
   return (

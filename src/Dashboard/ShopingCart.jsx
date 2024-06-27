@@ -28,8 +28,6 @@ const CartPage = ({ cartItems, updateCartItem, removeCartItem }) => {
       updateCartItem(item, item.quantity);
     });
   };
-
-  // Calculate the subtotal of the cart items
   const calculateSubtotal = () => {
     return localCartItems.reduce(
       (total, item) =>
