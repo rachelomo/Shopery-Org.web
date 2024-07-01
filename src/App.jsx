@@ -18,6 +18,8 @@ import { AuthProvider } from "./context/AuthContext";
 import Dashboard from "./Dashboard/Dashboard";
 import Subscribtion from "./Pages/Subscribtion";
 import ProtectedRoute from "./Components/ProtectedRoute";
+import ForgotPassword from "./Components/ForgotPassword";
+import ResetPassword from "./Components/ResetPassword";
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -62,6 +64,8 @@ const App = () => {
             <Route path="/Contact" element={<Contact_Us />} />
             <Route path="/login" element={<Sign_in />} />
             <Route path="/register" element={<Sign_up />} />
+            <Route path="/forgot_password" element={<ForgotPassword />} />
+            <Route path="/reset_password" element={<ResetPassword />} />
             <Route
               path="/user-dashboard/*"
               element={

@@ -131,7 +131,7 @@ const Sign_in = () => {
               </div>
 
               <div className="text-sm">
-                <a href="#" className="font-medium hover:text-green-600">
+                <a href="/forgot_password" className="font-medium hover:text-green-600">
                   Forgot password?
                 </a>
               </div>
