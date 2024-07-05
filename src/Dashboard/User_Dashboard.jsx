@@ -2,26 +2,15 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { MdDashboard, MdHistory } from "react-icons/md";
-import {
-  CiHeart,
-  // CiHome,
-  CiLogout,
-  CiSettings,
-  CiShoppingCart,
-} from "react-icons/ci";
-// import { IoIosArrowForward } from "react-icons/io";
-// const img = "/Breadcrumbs.png";
-// console.log("Image path:", img);
-// import SectionImg from "../../Components/SectionsImg";
-// import Navbar from "../../Components/Navbar";
+import { CiHeart, CiLogout, CiSettings, CiShoppingCart } from "react-icons/ci";
 
 const User_Dashboard = () => {
   const { user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     navigate("/login");
   };
 
@@ -33,10 +22,7 @@ const User_Dashboard = () => {
     return (
       <div className="flex flex-col items-center justify-center h-screen">
         <h1 className="text-2xl mb-4">You are not logged in!</h1>
-        <Link
-          to="/login"
-          className="px-4 py-2 bg-green-600 text-white rounded-md"
-        >
+        <Link to="/login" className="px-4 py-2 bg-green-600 text-white rounded-md">
           Login
         </Link>
       </div>

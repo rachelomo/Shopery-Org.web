@@ -1,110 +1,89 @@
-import { useState } from "react";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from 'react';
+import axios from 'axios';
+import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 
 const ChangePassword = () => {
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const toggleShowCurrentPassword = () => {
-    setShowCurrentPassword(!showCurrentPassword);
-  };
-
-  const toggleShowNewPassword = () => {
-    setShowNewPassword(!showNewPassword);
-  };
-
-  const toggleShowConfirmPassword = () => {
-    setShowConfirmPassword(!showConfirmPassword);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Current Password:", currentPassword);
-    console.log("New Password:", newPassword);
-    console.log("Confirm Password:", confirmPassword);
+  const handlePasswordChange = async () => {
+    try {
+      const response = await axios.post('http://localhost:8000/api/change-password', {
+        currentPassword,
+        newPassword,
+        confirmPassword,
+      });
+      console.log('Response from server:', response.data);
+    } catch (error) {
+      console.error('Error:', error.response.data);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Current Password</label>
-        <div className="relative border p-2">
-          <input
-            type={showCurrentPassword ? "text" : "password"}
-            value={currentPassword}
-            onChange={(e) => setCurrentPassword(e.target.value)}
-            required
-          />
-          <span
-            onClick={toggleShowCurrentPassword}
-            className="absolute"
-            style={{
-              right: "10px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              cursor: "pointer",
-            }}
-          >
-            {showCurrentPassword ? <FaEyeSlash /> : <FaEye />}
-          </span>
+    <div className="my-5 border p-5 w-full">
+      <h2 className="text-xl font-bold mb-4">Change Password</h2>
+      <div className="mb-4 relative">
+        <label htmlFor="currentPassword" className="block mb-1">Current Password</label>
+        <input
+          type={showCurrentPassword ? 'text' : 'password'}
+          id="currentPassword"
+          name="currentPassword"
+          value={currentPassword}
+          onChange={(e) => setCurrentPassword(e.target.value)}
+          className="border border-gray-300 rounded-md py-2 px-4 w-full focus:outline-none focus:border-green-600"
+        />
+        <div 
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer"
+          onClick={() => setShowCurrentPassword(!showCurrentPassword)}
+        >
+          {showCurrentPassword ? <IoEyeOffOutline /> : <IoEyeOutline />}
         </div>
       </div>
-
-      <label>New Password</label>
-
-      <div className="border p-2">
-        <div style={{ position: "relative" }}>
-          <input
-            type={showNewPassword ? "text" : "password"}
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-            required
-          />
-          <span
-            onClick={toggleShowNewPassword}
-            style={{
-              position: "absolute",
-              right: "10px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              cursor: "pointer",
-            }}
-          >
-            {showNewPassword ? <FaEyeSlash /> : <FaEye />}
-          </span>
+      <div className="mb-4 relative">
+        <label htmlFor="newPassword" className="block mb-1">New Password</label>
+        <input
+          type={showNewPassword ? 'text' : 'password'}
+          id="newPassword"
+          name="newPassword"
+          value={newPassword}
+          onChange={(e) => setNewPassword(e.target.value)}
+          className="border border-gray-300 rounded-md py-2 px-4 w-full focus:outline-none focus:border-green-600"
+        />
+        <div 
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer"
+          onClick={() => setShowNewPassword(!showNewPassword)}
+        >
+          {showNewPassword ? <IoEyeOffOutline /> : <IoEyeOutline />}
         </div>
       </div>
-
-      <div>
-        <label>Confirm Password</label>
-        <div style={{ position: "relative" }} className="border">
-          <input
-            type={showConfirmPassword ? "text" : "password"}
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-          <span
-            onClick={toggleShowConfirmPassword}
-            style={{
-              position: "absolute",
-              right: "10px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              cursor: "pointer",
-            }}
-          >
-            {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-          </span>
+      <div className="mb-4 relative">
+        <label htmlFor="confirmPassword" className="block mb-1">Confirm Password</label>
+        <input
+          type={showConfirmPassword ? 'text' : 'password'}
+          id="confirmPassword"
+          name="confirmPassword"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          className="border border-gray-300 rounded-md py-2 px-4 w-full focus:outline-none focus:border-green-600"
+        />
+        <div 
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 cursor-pointer"
+          onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+        >
+          {showConfirmPassword ? <IoEyeOffOutline /> : <IoEyeOutline />}
         </div>
       </div>
-
-      <button type="submit">Change Password</button>
-    </form>
+      <button
+        className="bg-green-600 text-white px-4 py-2 rounded-[20vw] hover:bg-green-700 focus:outline-none focus:bg-green-700"
+        onClick={handlePasswordChange}
+      >
+        Change Password
+      </button>
+    </div>
   );
 };
 

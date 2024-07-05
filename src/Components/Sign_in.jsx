@@ -31,7 +31,7 @@ const Sign_in = () => {
       if (response.status === 200) {
         toast.success("Login successful");
         login({ user, token });
-        localStorage.setItem("token", token); // Save token in localStorage
+        localStorage.setItem("token", token); 
         navigate("/user-dashboard/dashboard");
       } else {
         toast.error("Login failed. Please check your credentials.");

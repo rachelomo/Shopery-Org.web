@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-const img = "/Ellipse 5.png";
 import OrderHistory from "./OrderHistory";
 import CustomerProfile from "./CustormerProfilr";
 import CustomerAddress from "./CustomerAddress";
@@ -8,11 +7,13 @@ const TheDashboard = () => {
   return (
     <div className="p-4">
       {/* Profile and Billing Address Section */}
-      <div>
+      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+        <div className="border text-center w-full lg:w-1/2 flex items-center justify-center rounded h-auto lg:h-60">
         <div>
           <CustomerProfile />
         </div>
-        <div>
+        </div>
+        <div className="mt-4 lg:mt-0 border rounded p-5 w-full lg:w-1/2 h-auto lg:h-60">
           <CustomerAddress />
         </div>
       </div>
@@ -52,6 +53,7 @@ const TheDashboard = () => {
         <OrderHistory />
       </div>
     </div>
+  
   );
 };
 

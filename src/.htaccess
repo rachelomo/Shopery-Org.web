@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /
+
+# Redirect API calls to the backend
+RewriteCond %{REQUEST_URI} ^/api/ [NC]
+RewriteRule ^ - [L]
+
+# Redirect all other requests to index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.html [L]
