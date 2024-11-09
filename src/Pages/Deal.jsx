@@ -161,20 +161,16 @@ export const Deal = () => {
               />
               {/* first image items */}
               <div className="flex">
-                <div className="p-4 ">
-                  <div className="flex px-2">
-                    <span className="text-2xl">{category.icons}</span>
-                    <div
-                      className="bg-green-600 text-white px-[38px] gap-2 flex items-center"
-                      style={{ borderRadius: "20px" }}
-                    >
-                      <button className="flex items-center">
-                        {category.Buton}{" "}
-                        <span className="">{category.Cart}</span>
-                      </button>
-                    </div>
-                    <span className="text-2xl ml-1">{category.eye}</span>
-                  </div>
+                <div className="p-4">
+                <div className="flex justify-around items-center mt-2 px-2">
+                <span className="text-xl text-gray-600">{category.icons}</span>
+                <button
+                  className="bg-green-600 text-white flex items-center px-0 py-1 rounded-full gap-2 text-sm hover:bg-green-500 transition"
+                >
+                  {category.Buton} {category.Cart}
+                </button>
+                <span className="text-xl text-gray-600">{category.eye}</span>
+              </div>
                   <div className="flex flex-col items-center gap-1">
                     <h2 className="text-lg font-medium">{category.nam}</h2>
                     <span>{category.pric}</span>
@@ -212,7 +208,7 @@ export const Deal = () => {
                 <span className="text-sm text-gray-600">{category.rate}</span>
                 <span className="text-xl cursor-pointer">{category.cart}</span>
               </div>
-              <img src={category.rate} alt="rate" className="w-16 mt-2" />
+   
             </div>
           </div>
         ))}

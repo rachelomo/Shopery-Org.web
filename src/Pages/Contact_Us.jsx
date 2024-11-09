@@ -13,6 +13,46 @@ const img = "Breadcrumbs.png";
 const MAPBOX_TOKEN = "YOUR_MAPBOX_ACCESS_TOKEN";
 
 const Contact_Us = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("https://formspree.io/f/meoqkjpw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      alert("An error occurred. Please try again.");
+    }
+  };
+
+
   const [viewport, setViewport] = useState({
     latitude: 37.7749,
     longitude: -122.4194,
@@ -64,35 +104,47 @@ const Contact_Us = () => {
               <br /> project and you need my help? Feel free to contact me.
             </span>
           </div>
-          <form className="flex flex-col gap-4 px-5 mt-5">
-            <div className="flex flex-col lg:flex-row gap-4">
-              <input
-                type="text"
-                placeholder="Template Cookie"
-                className="border p-2 rounded w-full"
-              />
-              <input
-                type="email"
-                placeholder="zakirsoft@gmail.com"
-                className="border p-2 rounded w-full"
-              />
-            </div>
-            <input
-              type="text"
-              placeholder="Hello"
-              className="border p-2 rounded w-full"
-            />
-            <textarea
-              placeholder="Subject"
-              className="border p-2 rounded h-32 w-full"
-            />
-            <button
-              type="submit"
-              className="bg-green-600 text-white w-40 p-2 rounded-full "
-            >
-              Send Message
-            </button>
-          </form>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 px-5 mt-5">
+        <div className="flex flex-col lg:flex-row gap-4">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            className="border p-2 rounded w-full"
+            onChange={handleChange}
+            value={formData.name}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            className="border p-2 rounded w-full"
+            onChange={handleChange}
+            value={formData.email}
+          />
+        </div>
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject"
+          className="border p-2 rounded w-full"
+          onChange={handleChange}
+          value={formData.subject}
+        />
+        <textarea
+          name="message"
+          placeholder="Message"
+          className="border p-2 rounded h-32 w-full"
+          onChange={handleChange}
+          value={formData.message}
+        />
+        <button
+          type="submit"
+          className="bg-green-600 text-white w-40 p-2 rounded-full "
+        >
+          Send Message
+        </button>
+      </form>
         </div>
       </div>
 

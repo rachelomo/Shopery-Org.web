@@ -5,6 +5,7 @@ import { RiCustomerService2Fill } from "react-icons/ri";
 import { MdLocalShipping } from "react-icons/md";
 import Navbar from "../Components/Navbar";
 import Categories from "./Categories";
+import { Link } from "react-router-dom";
 
 const img = "Bannar Big (1).png";
 const imgy = "BG.png";
@@ -32,9 +33,9 @@ const LandingPage = () => {
               Free Shipping on all your orders
             </p>
             <hr className="border-l-2 border-green-600 h-[5vw] my-2 absolute bottom-[13vw]" />
-            <button className="flex items-center bg-green-500 text-white px-4 py-2 rounded mt-4">
-              shop now <HiOutlineArrowSmallRight className="ml-2" />
-            </button>
+            <Link to='/Shop' className="mt-4 px-4 py-2 text-xs lg:text-sm bg-green-600 text-white rounded-lg flex items-center">
+                shop now <HiOutlineArrowSmallRight className="ml-2" />
+              </Link>
           </div>
         </div>
 
@@ -47,38 +48,39 @@ const LandingPage = () => {
               <span className="block mt-2 text-xs lg:text-sm">
                 only fruit and vegetable
               </span>
-              <button className="mt-4 px-4 py-2 text-xs lg:text-sm bg-green-600 text-white rounded-lg flex items-center">
+              <Link to='/Shop' className="mt-4 px-4 py-2 text-xs lg:text-sm bg-green-600 text-white rounded-lg w-[21vw] md:w-[8.7vw] flex items-center">
                 shop now <HiOutlineArrowSmallRight className="ml-2" />
-              </button>
+              </Link>
             </div>
+            {/* /Shop */}
           </div>
           <img src={imgry} alt="img2" className="h-1/2 w-full object-cover" />
         </div>
       </div>
 
-      <div className="flex flex-wrap justify-around mt-5 mb-20 p-4">
-        <div className="flex items-center font-bold pl-3 w-full sm:w-auto mb-4 sm:mb-0">
+      <div className="flex flex-wrap justify-around mt-5 md:ml-10 ml-0 mb-20 p-4 ">
+        <div className="flex items-center font-bold pl-2 w-full sm:w-auto mb-4 sm:mb-0">
           <MdLocalShipping className="text-green-600 text-2xl" />
           <div className="pl-3 text-xs sm:text-base">
             <h2>Free Shipping</h2>
             <p>Free Shipping ON All Your Order</p>
           </div>
         </div>
-        <div className="flex items-center font-bold w-full sm:w-auto mb-4 sm:mb-0">
+        <div className="flex items-center font-bold w-full sm:w-auto mb-4 ml-2 md:ml-0 sm:mb-0">
           <RiCustomerService2Fill className="text-green-600 text-2xl" />
           <div className="pl-3 text-xs sm:text-base">
             <h2>Customer Support 24/7</h2>
             <p>instant access to support</p>
           </div>
         </div>
-        <div className="flex items-center font-bold w-full sm:w-auto mb-4 sm:mb-0">
+        <div className="flex items-center font-bold w-full ml-2 md:ml-0 sm:w-auto mb-4 sm:mb-0">
           <GrSecure className="text-green-600 text-2xl" />
           <div className="pl-3 text-xs sm:text-base">
             <h2>100% instant payment</h2>
             <p>we ensure your payment is safe</p>
           </div>
         </div>
-        <div className="flex items-center font-bold w-full sm:w-auto">
+        <div className="flex items-center font-bold ml-2 md:ml-0 w-full sm:w-auto">
           <BsBoxSeam className="text-green-600 text-2xl" />
           <div className="pl-3 text-xs sm:text-base">
             <h2>Money-Back Guarantee</h2>

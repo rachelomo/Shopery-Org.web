@@ -1,9 +1,13 @@
 import { SlCalender } from "react-icons/sl";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { useState } from "react";
 import BlogListImgSec from "./BlogListImgSec";
 
 const img1 = "gallery.png";
+
+// Mock data to simulate Shopery-related items
+const SHOPERY_ITEMS = ["Fresh Fruit", "Vegetable", "Cooking", "Snack", "Beverages", "Bread & Bakery"];
 
 const CATEGORIES = [
   { name: "Fresh Fruit", count: 134 },
@@ -29,6 +33,22 @@ const TAGS = [
 ];
 
 const BlogListImgFrst = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate();
+
+  // Handle search function
+  const handleSearch = () => {
+    const isShoperyRelated = SHOPERY_ITEMS.some((item) =>
+      item.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    if (isShoperyRelated) {
+      navigate(`/shopery/${searchTerm}`);
+    } else {
+      alert("The item does not exist.");
+    }
+  };
+
   return (
     <div className="px-5 py-8 lg:px-20">
       <div className="flex flex-wrap lg:flex-nowrap">
@@ -37,13 +57,18 @@ const BlogListImgFrst = () => {
           {/* Search */}
           <div className="relative w-full mb-8">
             <input
-              type="search"
+              type="text"
               placeholder="Search..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none"
             />
-            <div className="absolute inset-y-0 right-0 flex items-center pr-3">
-              <FaSearch className="text-gray-400" />
-            </div>
+            <button
+              onClick={handleSearch}
+              className="absolute inset-y-0 right-0 flex items-center pr-3"
+            >
+              <FaSearch className="text-gray-400 cursor-pointer" />
+            </button>
           </div>
 
           {/* Categories */}
@@ -53,7 +78,7 @@ const BlogListImgFrst = () => {
               {CATEGORIES.map((category, index) => (
                 <li key={index}>
                   <Link to="#" className="flex items-center justify-between">
-                    {category.name}{" "}
+                    {category.name}
                     <span className="text-gray-500">({category.count})</span>
                   </Link>
                 </li>

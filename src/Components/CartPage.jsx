@@ -1,4 +1,3 @@
-// src/components/CartPage.jsx
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import UncoloredNavbar from "./UncoloredNavbar";
@@ -6,16 +5,15 @@ import ShopVegetable from "../Pages/ShopVegetable";
 import { TiTimes } from "react-icons/ti";
 import { HiMiniMinusSmall, HiMiniPlusSmall } from "react-icons/hi2";
 
-const CartPage = ({ cartItems, updateCartItem, removeCartItem }) => {
+const CartPage = ({ cartItems, updateCartItem, removeCartItem, applyCoupon, isLoggedIn }) => {
   const [localCartItems, setLocalCartItems] = useState([]);
+  const [couponCode, setCouponCode] = useState("");
+  const [discount, setDiscount] = useState(0);
   const navigate = useNavigate();
-
-  // Update local cart items when cartItems prop changes
   useEffect(() => {
     setLocalCartItems(cartItems);
   }, [cartItems]);
 
-  // Handle quantity change in local state
   const handleQuantityChange = (index, quantity) => {
     setLocalCartItems((prevItems) =>
       prevItems.map((item, i) =>
@@ -24,14 +22,12 @@ const CartPage = ({ cartItems, updateCartItem, removeCartItem }) => {
     );
   };
 
-  // Handle updating the cart in the parent state
   const handleUpdateCart = () => {
     localCartItems.forEach((item) => {
       updateCartItem(item, item.quantity);
     });
   };
 
-  // Calculate the subtotal of the cart items
   const calculateSubtotal = () => {
     return localCartItems.reduce(
       (total, item) =>
@@ -40,23 +36,52 @@ const CartPage = ({ cartItems, updateCartItem, removeCartItem }) => {
     );
   };
 
-  const shippingCost = 5.0;
-  const subtotal = calculateSubtotal();
-  const total = subtotal + shippingCost;
+  // const handleApplyCoupon = () => {
+  //   const discountAmount = applyCoupon(couponCode);
+  //   if (discountAmount) {
+  //     setDiscount(discountAmount);
+  //   } else {
+  //     alert("Invalid coupon code.");
+  //   }
+  // };
 
+  const subtotal = calculateSubtotal();
+  const total = subtotal - discount;
+
+  // New function to handle checkout process
+  const handleProceedToCheckout = () => {
+    if (isLoggedIn) {
+      navigate("/checkout");
+    } else {
+      alert("You need to log in before proceeding to checkout.");
+      navigate("/login", { state: { from: "/checkout" } });
+    }
+  };
+  const handleApplyCoupon = () => {
+    const discountAmount = applyCoupon(couponCode); 
+    
+    // Debugging outputs
+    console.log("Coupon Code entered:", couponCode);
+    console.log("Discount Amount from applyCoupon function:", discountAmount);
+  
+    if (discountAmount) {
+      setDiscount(discountAmount);
+      console.log("Discount successfully applied:", discountAmount);
+    } else {
+      alert("Invalid coupon code.");
+    }
+  };
+  
   return (
     <div>
       <UncoloredNavbar />
       <ShopVegetable />
       <div className="flex flex-col items-center">
-        <h2 className="text-2xl font-bold text-center mt-4">
-          My Shopping Cart
-        </h2>
+        <h2 className="text-2xl font-bold text-center mt-4">My Shopping Cart</h2>
         <div className="flex flex-col lg:flex-row w-full lg:px-20 my-5">
           <div className="w-full lg:w-3/4 border-2 p-2">
             {localCartItems.length > 0 ? (
               <div>
-                {/* Cart header for larger screens */}
                 <div className="hidden lg:flex justify-between items-center border-b pb-2 mb-2">
                   <div className="w-1/6">Product</div>
                   <div className="w-1/6">Name</div>
@@ -65,7 +90,6 @@ const CartPage = ({ cartItems, updateCartItem, removeCartItem }) => {
                   <div className="w-1/6">Subtotal</div>
                   <div className="w-1/6">Actions</div>
                 </div>
-                {/* Cart items */}
                 {localCartItems.map((item, index) => (
                   <div
                     key={index}
@@ -74,17 +98,11 @@ const CartPage = ({ cartItems, updateCartItem, removeCartItem }) => {
                     <div className="w-full lg:w-1/6 mb-2 lg:mb-0">
                       <img src={item.img} alt={item.name} className="w-full" />
                     </div>
-                    <div className="w-full lg:w-1/6 mb-2 lg:mb-0">
-                      {item.name}
-                    </div>
-                    <div className="w-full lg:w-1/6 mb-2 lg:mb-0">
-                      {item.price}
-                    </div>
+                    <div className="w-full lg:w-1/6 mb-2 lg:mb-0">{item.name}</div>
+                    <div className="w-full lg:w-1/6 mb-2 lg:mb-0">{item.price}</div>
                     <div className="w-full lg:w-1/6 mb-2 lg:mb-0 flex items-center justify-center lg:justify-start">
                       <button
-                        onClick={() =>
-                          handleQuantityChange(index, item.quantity - 1)
-                        }
+                        onClick={() => handleQuantityChange(index, item.quantity - 1)}
                       >
                         <HiMiniMinusSmall
                           style={{ borderRadius: "20px" }}
@@ -94,15 +112,11 @@ const CartPage = ({ cartItems, updateCartItem, removeCartItem }) => {
                       <input
                         type="number"
                         value={item.quantity}
-                        onChange={(e) =>
-                          handleQuantityChange(index, parseInt(e.target.value))
-                        }
+                        onChange={(e) => handleQuantityChange(index, parseInt(e.target.value))}
                         className="w-12 mx-2 text-center"
                       />
                       <button
-                        onClick={() =>
-                          handleQuantityChange(index, item.quantity + 1)
-                        }
+                        onClick={() => handleQuantityChange(index, item.quantity + 1)}
                       >
                         <HiMiniPlusSmall
                           style={{ borderRadius: "20px" }}
@@ -149,11 +163,16 @@ const CartPage = ({ cartItems, updateCartItem, removeCartItem }) => {
                 style={{ borderRadius: "20px" }}
               >
                 <input
-                  type="email"
+                  type="text"
                   placeholder="Enter Code"
+                  value={couponCode}
+                  onChange={(e) => setCouponCode(e.target.value)}
                   className="py-1 px-2 flex-grow rounded-l-full border-none outline-none"
                 />
-                <button className="bg-black py-2 px-4 text-white rounded-r-full">
+                <button
+                  onClick={handleApplyCoupon}
+                  className="bg-black py-2 px-4 text-white rounded-r-full"
+                >
                   Apply Coupon
                 </button>
               </div>
@@ -169,9 +188,9 @@ const CartPage = ({ cartItems, updateCartItem, removeCartItem }) => {
                 <span>Subtotal:</span>
                 <span>${subtotal.toFixed(2)}</span>
               </div>
-              <div className="flex justify-between">
-                <span>Shipping:</span>
-                <span>Free</span>
+              <div className="flex justify-between border-b pb-2 mb-2">
+                <span>Discount:</span>
+                <span>${discount.toFixed(2)}</span>
               </div>
               <div className="flex justify-between font-bold border-t pt-2">
                 <span>Total:</span>
@@ -180,7 +199,7 @@ const CartPage = ({ cartItems, updateCartItem, removeCartItem }) => {
               <div className="flex justify-center mt-4">
                 <button
                   className="bg-green-600 text-white px-4 py-2 w-full rounded-[20px]"
-                  onClick={() => navigate("/checkout")}
+                  onClick={handleProceedToCheckout}
                 >
                   Proceed to Checkout
                 </button>

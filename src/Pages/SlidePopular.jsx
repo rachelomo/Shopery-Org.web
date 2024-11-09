@@ -1,5 +1,6 @@
 // src/SlidePopular.js
 import { HiOutlineArrowSmallRight } from "react-icons/hi2";
+import { Link } from "react-router-dom";
 const img = "Rectangle 54.png";
 const imgy = "Bannar (1).png";
 const imgry = "Rectangle 54 (1).png";
@@ -16,12 +17,12 @@ const SlidePopular = () => {
             <span>00 Days</span> : <span>02 Months</span> : <span>18 Mins</span>{" "}
             : <span>46 Secs</span>
           </div>
-          <button
+          <Link to='/Shop'
             style={{ borderRadius: "20px" }}
             className="flex items-center text-green-500 bg-white hover:bg-blue-700 font-bold py-2 px-4 rounded mt-2"
           >
             Shop Now <HiOutlineArrowSmallRight className="ml-2" />
-          </button>
+          </Link>
         </div>
       </div>
       <div className="relative w-full lg:w-[28vw]">
@@ -30,12 +31,12 @@ const SlidePopular = () => {
           <span className="text-sm">85% Fat Free</span>
           <h2 className="text-2xl lg:text-4xl font-bold">Low-Fat Meat</h2>
           <span className="text-lg my-2">Standard at $79.99</span>
-          <button
+          <Link to='/Shop'
             style={{ borderRadius: "20px" }}
-            className="flex items-center bg-white hover:bg-blue-700 text-green-500 font-bold py-2 px-4 rounded mt-2"
+            className="flex items-center text-green-500 bg-white hover:bg-blue-700 font-bold py-2 px-4 rounded mt-2"
           >
             Shop Now <HiOutlineArrowSmallRight className="ml-2" />
-          </button>
+          </Link>
         </div>
       </div>
       <div className="relative w-full lg:w-[28vw]">
@@ -46,12 +47,12 @@ const SlidePopular = () => {
           <span className="text-lg my-2">
             Up to <span className="font-bold">64% OFF</span>
           </span>
-          <button
+          <Link to='/Shop'
             style={{ borderRadius: "20px" }}
-            className="flex items-center bg-white hover:bg-blue-700 text-green-500 font-bold py-2 px-4 rounded mt-2"
+            className="flex items-center text-green-500 bg-white hover:bg-blue-700 font-bold py-2 px-4 rounded mt-2"
           >
             Shop Now <HiOutlineArrowSmallRight className="ml-2" />
-          </button>
+          </Link>
         </div>
       </div>
     </div>

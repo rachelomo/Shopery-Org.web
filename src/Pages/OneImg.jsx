@@ -1,4 +1,5 @@
 import { HiOutlineArrowSmallRight } from "react-icons/hi2";
+import { Link } from "react-router-dom";
 
 const img = "Discount Bannar.png";
 
@@ -22,12 +23,12 @@ const OneImg = () => {
             <br className="hidden md:inline" />
             money-back guarantee
           </span>
-          <button
+          <Link to="/Shop"
             style={{ borderRadius: "20px" }}
             className="flex items-center bg-green-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 md:px-10 rounded mt-2 text-xs md:text-base"
           >
             Shop Now <HiOutlineArrowSmallRight className="ml-2" />
-          </button>
+          </Link>
         </div>
       </div>
     </div>
