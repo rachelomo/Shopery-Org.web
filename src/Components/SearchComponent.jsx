@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import SearchResults from "./SearchResults";
 
 const SearchComponent = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState([]);
   const navigate = useNavigate();
+  const searchRef = useRef(null); // Create a ref for the search component
 
   const items = [
     "Fresh Fruit",
@@ -39,11 +41,31 @@ const SearchComponent = () => {
   };
 
   const handleItemClick = (item) => {
+    // Reset search term and results when an item is clicked
+    setSearchTerm("");
+    setResults([]);
     navigate(`/shopery/${item.toLowerCase().replace(/\s+/g, "-")}`);
   };
 
+  // Close search results when clicking outside the search component
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setResults([]); // Close the results if clicking outside
+      }
+    };
+
+    // Attach event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="p-4 relative">
+    <div className="p-4 relative" ref={searchRef}> {/* Attach ref here */}
       <div className="flex rounded border w-80">
         <input
           type="text"
@@ -59,20 +81,10 @@ const SearchComponent = () => {
           Search
         </button>
       </div>
-      
-      {/* Display search results as an overlay */}
+
+      {/* Pass the results and handleItemClick function to the SearchResults component */}
       {results.length > 0 && (
-        <ul className="absolute top-[9.3vh] left-[1.2vw] w-[23.3vw] bg-white border border-gray-300 shadow-lg max-h-40 overflow-y-auto z-10">
-          {results.map((result, index) => (
-            <li
-              key={index}
-              className="p-2 cursor-pointer hover:bg-gray-100 text-gray-800"
-              onClick={() => handleItemClick(result)}
-            >
-              {result}
-            </li>
-          ))}
-        </ul>
+        <SearchResults results={results} handleItemClick={handleItemClick} />
       )}
     </div>
   );
