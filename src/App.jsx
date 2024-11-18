@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import LandingPage from "./Pages/LandingPage";
+import FreshVegetable from "./Components/FreshVegetable";
+import FreshFruit from "./Components/FreshFruit";
 import HomePage from "./Pages/HomePage";
 import BlogList from "./Pages/BlogList";
 import Sign_in from "./Components/Sign_in";
@@ -56,6 +58,16 @@ const App = () => {
           <Header cartItems={cartItems} />
           <Routes>
             <Route path="/" element={<LandingPage />} />
+            <Route path="/shopery/fresh-fruit" element={<FreshFruit />} />
+            <Route path="/shopery/fresh-vegetable" element={<FreshVegetable />} />
+            <Route path="/shopery/meat-fish" element={<FreshVegetable />} />
+            <Route path="/shopery/beverages" element={<FreshVegetable />} />
+            <Route path="/shopery/snacks" element={<FreshVegetable />} />
+            <Route path="/shopery/chines-cabbage" element={<FreshVegetable />} />
+            <Route path="/shopery/grape" element={<FreshVegetable />} />
+            <Route path="/shopery/tomato" element={<FreshVegetable />} />
+            <Route path="/shopery/organic-products" element={<FreshVegetable />} />
+            <Route path="/shopery/fresh-vegetables" element={<FreshVegetable />} />
             <Route path="/HomePage" element={<HomePage />} />
             <Route path="/Shop" element={<Shoplist addToCart={addToCart} />} />
             <Route path="/Pages" element={<Pages />} />

@@ -18,18 +18,18 @@ import NomalTest from "./NomalTest";
 // import Subscribtion from "./Subscribtion";
 import { IoIosArrowForward } from "react-icons/io";
 import { Link } from "react-router-dom";
-const imgry = "Breadcrumbs.png";
+const imgry = "/Breadcrumbs.png";
 
-const img = "Image (19).png";
-const img1 = "Image (20).png";
-const group = "Group (5).png";
-const img2 = "stars 1.png";
-const img3 = "Vector (1).png";
-const img4 = "Image (21).png";
-const img5 = "Image (23).png";
-const img6 = "Image (24).png";
-const img7 = "Image (25).png";
-const img8 = "Image (26).png";
+const img = "/Image (19).png";
+const img1 = "/Image (20).png";
+const group = "/Group (5).png";
+const img2 = "/stars 1.png";
+const img3 = "/Vector (1).png";
+const img4 = "/Image (21).png";
+const img5 = "/Image (23).png";
+const img6 = "/Image (24).png";
+const img7 = "/Image (25).png";
+const img8 = "/Image (26).png";
 
 const teamMembers = [
   {

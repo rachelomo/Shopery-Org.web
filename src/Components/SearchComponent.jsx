@@ -17,8 +17,8 @@ const SearchComponent = () => {
     "Chines Cabbage",
     "Grape",
     "Tomato",
-    "Shopery - Organic Products",
-    "Shopery - Fresh Vegetables",
+    "Organic Products",
+    "Fresh Vegetables",
   ];
 
   const handleSearch = (event) => {
